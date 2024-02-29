@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/FreeCart-Ecommerce-WebApp-React/static/css/main.38011f4b.css",
-    "main.js": "/FreeCart-Ecommerce-WebApp-React/static/js/main.5fea9ec8.js",
+    "main.js": "/FreeCart-Ecommerce-WebApp-React/static/js/main.6be28a12.js",
     "static/js/592.7ae711f1.chunk.js": "/FreeCart-Ecommerce-WebApp-React/static/js/592.7ae711f1.chunk.js",
     "static/media/blog-img-2.jpeg": "/FreeCart-Ecommerce-WebApp-React/static/media/blog-img-2.69e5e73301d9616ba8c6.jpeg",
     "static/media/fa-solid-900.ttf": "/FreeCart-Ecommerce-WebApp-React/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
@@ -24,11 +24,11 @@
     "static/media/slick.woff": "/FreeCart-Ecommerce-WebApp-React/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/FreeCart-Ecommerce-WebApp-React/index.html",
     "main.38011f4b.css.map": "/FreeCart-Ecommerce-WebApp-React/static/css/main.38011f4b.css.map",
-    "main.5fea9ec8.js.map": "/FreeCart-Ecommerce-WebApp-React/static/js/main.5fea9ec8.js.map",
+    "main.6be28a12.js.map": "/FreeCart-Ecommerce-WebApp-React/static/js/main.6be28a12.js.map",
     "592.7ae711f1.chunk.js.map": "/FreeCart-Ecommerce-WebApp-React/static/js/592.7ae711f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.38011f4b.css",
-    "static/js/main.5fea9ec8.js"
+    "static/js/main.6be28a12.js"
   ]
 }

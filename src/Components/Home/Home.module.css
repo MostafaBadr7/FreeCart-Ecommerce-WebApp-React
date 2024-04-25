@@ -1,0 +1,16 @@
+.btnShopNow {
+  top: 55% !important;
+  left: 10% !important;
+}
+
+.menFashion {
+  position: absolute;
+  right: 2% !important;
+}
+
+/* .catDiv:hover h2 {
+  color: rgb(93, 226, 93) !important;
+} */
+.catSider {
+  background-color: rgb(170, 166, 166) !important;
+}

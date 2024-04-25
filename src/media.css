@@ -1,0 +1,103 @@
+/* Global */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ................. You can change the main color from here .....................*/
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media 1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+@media screen and (max-width: 768px) {
+  /* .................................................... Cart .................................................. */
+  .cartItem-img-div {
+    column-count: 3 !important;
+  }
+  .cartItem-info-div {
+    column-count: 9 !important;
+  }
+  .cartItem-title {
+    font-size: 1rem;
+  }
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media 2 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+@media screen and (max-width: 575px) {
+  /* .................................................... Cart .................................................. */
+  .cartItem-img {
+    width: 30% !important;
+    margin: auto;
+  }
+  .cartItem-img-div {
+    column-count: 3 !important;
+  }
+  .cartItem-info-div {
+    column-count: 9 !important;
+    padding: 30px !important;
+  }
+  .carItem-mainRow {
+    padding-bottom: 0 !important;
+  }
+  .cartItem-footer {
+    margin: 10px 0 0 0 !important;
+    justify-content: space-between !important;
+    padding-inline: 0 !important;
+  }
+  .cartItem-totalPrice {
+    margin-inline: 0 !important;
+  }
+  .cartItem-rating {
+    margin-right: 9px !important;
+  }
+
+  .pdetails-mainImg {
+    width: 50% !important;
+    /* margin-right: auto !important; */
+  }
+  .pagination-imgs-div ~ div {
+    width: 10% !important;
+  }
+  .p-details-description {
+    padding: 5px 8% !important;
+  }
+  .pDetails-img {
+    width: 50% !important;
+  }
+  .details-slider {
+    display: block !important;
+  }
+  .details-col {
+    display: none !important;
+  }
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media 3 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+@media screen and (max-width: 400px) {
+  /* .................................................... Cart .................................................. */
+  .cartItem-info-div-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: left !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+  .cartItem-info-div-container2 {
+    /* width: 40% !important; */
+  }
+  .carItem-btn-plus,
+  .carItem-btn-mins {
+    padding: 5px !important;
+  }
+  .cart-checkout-div {
+    flex-direction: column-reverse !important;
+  }
+  .cart-check-btn {
+    margin: 10px auto !important;
+  }
+  /* .................................................... NavBar .................................................. */
+  .navbar-toggler {
+    margin-left: auto !important;
+  }
+}

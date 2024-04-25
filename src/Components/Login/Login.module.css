@@ -1,0 +1,9 @@
+.loginMain {
+  background-image: url(../../Assets/images/Login/adam-jang-8pOTAtyd_Mc-unsplash.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.linkRegister:hover {
+  color: green !important;
+}

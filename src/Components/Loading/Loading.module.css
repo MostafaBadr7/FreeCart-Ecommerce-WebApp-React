@@ -1,0 +1,19 @@
+h1 {
+  color: red;
+}
+
+.cart:hover {
+  background-color: indianred;
+}
+.cart .bank {
+  color: blue;
+}
+.cart .politics {
+  color: green;
+  font-weight: 15px;
+  font-style: italic;
+}
+
+.all, nav {
+  color: indigo;
+}/*# sourceMappingURL=Loading.module.css.map */

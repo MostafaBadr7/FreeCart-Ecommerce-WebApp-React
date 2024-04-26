@@ -88,27 +88,29 @@ export default function OnsalesSlick({data}) {
         {BestSellers?.map(product => 
           <div class={style.productCard} role='button' onClick={ (e)=> navigate(`/ProductDetails/${product.id}`) } key={product._id} >
               <div class={style.productImage}>
-              {product?.priceAfterDiscount ?<span class={style.discountTag}> {Math.round(((product.priceAfterDiscount / product.price) * 100) -  100 )}% off</span>  : null}
-                <img
-                  src={product?.imageCover}
-                  alt={`${product?.title.split(' ').slice(0, 6).join(' ')}`} 
-                  className={style.productThumb}
-                />
-                <button onClick={(e)=>{e.stopPropagation(); addToCart(product._id)}} class={style.cardBtn} disabled={addLoading}>
-                  {addLoading?
-                      <div><i className='fas fa-spin fa-spinner fa-1x text-success'></i></div>
-                      :
-                      <span className=''>Add To Cart</span>
+                  {product?.priceAfterDiscount ?<span class={style.discountTag}> {Math.round(((product.priceAfterDiscount / product.price) * 100) -  100 )}% off</span>  : null}
+                    <img
+                      src={product?.imageCover}
+                      alt={`${product?.title.split(' ').slice(0, 6).join(' ')}`} 
+                      className={style.productThumb}
+                    />
+                  {localStorage.getItem('ecommToken') &&
+                    <button onClick={(e)=>{e.stopPropagation(); addToCart(product._id)}} class={style.cardBtn} disabled={addLoading}>
+                      {addLoading?
+                          <div><i className='fas fa-spin fa-spinner fa-1x text-success'></i></div>
+                          :
+                          <span className=''>Add To Cart</span>
+                      }
+                    </button>
                   }
-                </button>
               </div>
-            <div class={style.productInfo}>
-              <h2 class={style.productBrand}>{product?.brand.name}</h2>
-              <p class={style.productShortDes}>{product?.title.split(' ').slice(0, 6).join(' ')} ..</p>
-              { product?.priceAfterDiscount ? <span class={style.price}>{product?.priceAfterDiscount}EGP</span> : null}
-              { product?.priceAfterDiscount ? <span class={style.actualPrice}>{product.price}EGP</span> : null}
-              { !product?.priceAfterDiscount ? <span class={style.price}>{product.price}EGP</span> : null}
-            </div>
+              <div class={style.productInfo}>
+                  <h2 class={style.productBrand}>{product?.brand.name}</h2>
+                  <p class={style.productShortDes}>{product?.title.split(' ').slice(0, 6).join(' ')} ..</p>
+                  { product?.priceAfterDiscount ? <span class={style.price}>{product?.priceAfterDiscount}EGP</span> : null}
+                  { product?.priceAfterDiscount ? <span class={style.actualPrice}>{product.price}EGP</span> : null}
+                  { !product?.priceAfterDiscount ? <span class={style.price}>{product.price}EGP</span> : null}
+              </div>
           </div>
           // <SingleProduct key={product.id}  id={product.id} product={product}/>
         )}

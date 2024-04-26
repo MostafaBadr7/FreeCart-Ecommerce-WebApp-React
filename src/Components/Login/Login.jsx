@@ -80,7 +80,7 @@ export default function Login() {
     //......Google Login.........
 
     const handleClickGoogle = () => {
-        const callbackUrl = `${window.location.origin}`;
+        const callbackUrl = 'https://mostafabadr7.github.io/FreeCart-Ecommerce-WebApp-React';
         const googleClientId = "744491233039-d7vsj933f07qk5ccsq48l3vdevovnu3m.apps.googleusercontent.com";
         const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(
           callbackUrl
@@ -263,7 +263,7 @@ const myFormikNewPass = useFormik({
   return <>
   <div className={`${style.loginMain} py-5`}>
     <div className='container text-white'>
-        <h2 className='fw-bold'>ShopVista</h2>
+        <h2 className='fw-bold'>Shopvista</h2>
     </div>
     <div className=' container text-black d-flex align-items-center '>
         <Link className='bg-white p-1' to='/Home'>

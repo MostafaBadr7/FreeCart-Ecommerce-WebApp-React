@@ -223,9 +223,9 @@ function checkPriceInput(){
         {!noResult && <h1 className="search-results-header ms-3 mt-5">Search Results for "{SearchKey}"</h1>}
         <div className='mx-2'> <hr /> </div>
         {/**************************************  Main Row ********************************************/}
-            <main  className='products-row row  g-2 mt-3 position-relative z-3 pe-3 ps-3 '>
+            <main  className={`products-row row  g-2 mt-3 position-relative z-3 pe-3 ps-3 ${window.location.hash.toLowerCase().includes('search') && 'bg-white ms-1 '}`}>
                       {/*-----------------------------  left column ---------------------*/}
-              <div className='col-md-2 col-sm-4  col-12 position-sticky shadow rounded  pt-3 mb-3 '>
+              <div className='col-md-2 col-sm-4  col-12 position-sticky shadow rounded  pt-3 mb-3  '>
                 <div className='bg-light ps-2 pt-2 rounded'>
                   <h4 className='text-muted '>Filter</h4>
                     <hr className=' me-2 mt-1 pt-2' />

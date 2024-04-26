@@ -217,19 +217,19 @@ function Linkedin(){
                   <Link to={'https://www.linkedin.com/in/mostafa-badr-610b64208/'} target='_blank'>
                     <i  role='button'  onClick={ Linkedin} className='fab fa-linkedin mx-2 cursor-pointer text-primary fs-4'></i>
                   </Link>
-                  <Link to={'https://github.com/MostafaBadr7'} >
+                  <Link to={'https://github.com/MostafaBadr7/FreeCart-Ecommerce-WebApp-React'} target='_blank'>
                     <i className='fab fa-github mx-2 cursor-pointer text-dark fs-4'></i>
                   </Link>
-                  <a href='https://drive.google.com/drive/folders/19EzxwsrMB_DdbNCCkckacGnIBF-v1eFG' target='_blank'>
+                  <Link to='https://drive.google.com/drive/folders/19EzxwsrMB_DdbNCCkckacGnIBF-v1eFG' target='_blank'>
                     <i class="fa-regular fa-file mx-2 cursor-pointer text-danger fs-4">CV</i>
-                  </a>
+                  </Link>
 
                   {/* <i className='fab fa-youtube mx-2 cursor-pointer text-danger'></i> */}
               </div>
                     <div className="dropdown d-none d-sm-block ">
-                          <button className="mx-2 border-0 rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i className="fa-solid fa-circle-user fs-3 mt-1 text-secondary rounded-circle"></i>
-                          </button>
+                          <div className="mx-2 border-0 rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i className="fa-solid fa-circle-user fs-3  text-success-emphasis rounded-circle"></i>
+                          </div>
                           <ul className="dropdown-menu p-0 mt-2 px-3 pt-3 rounded bg-transparent opacity text-center ">
                           {/* <h6 className='text-black mx-3 my-3'>{  localStorage.getItem('ecommToken') ? <span className=' m-2 d-block text-success'>Hello</span>:null} <span className='fw-bold'>{cstNname?.name?.split(' ').slice(0, 2).join(' ')}</span></h6> */}
                           {  localStorage.getItem('ecommToken') ? <>
@@ -246,7 +246,7 @@ function Linkedin(){
                     </div>
                     {localStorage.getItem('ecommToken') &&
                     <Link to={'/Cart'} className="nav-link cursor-pointer mx-1 position-relative d-none d-sm-block">
-                      <i className="fa-solid fa-cart-shopping  mt-2 fs-4 text-main"></i>                     
+                      <i className="fa-solid fa-cart-shopping  fs-4 text-main"></i>                     
                        <span className="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-main mb-1 ms-2">
                         {localStorage.getItem('ecommToken') ? counter : ''}
                       </span>

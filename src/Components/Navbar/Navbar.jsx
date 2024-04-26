@@ -201,12 +201,12 @@ function Linkedin(){
                   </div>
                 </li>
               </ul>
-              <div className='ms-auto'> 
-                <input className='SearchKey  form-control position-relative rounded-end-0 fs-6 fw-light text-muted px-2 py-2 my-1 mb-2' onBlur={ closeSuggest} onFocus={()=> setsearchRecom(true) } onChange={SearchOnChange}  onKeyDown={SearchOnEnter} ref={SearchValue} placeholder='product, brand, ...'  type='text'></input>
+              <div className='ms-auto position-relative'> 
+                <input className='SearchKey  form-control  rounded-end-0 fs-6 fw-light text-muted px-2 py-2 my-1 mb-2' onBlur={ closeSuggest} onFocus={()=> setsearchRecom(true) } onChange={SearchOnChange}  onKeyDown={SearchOnEnter} ref={SearchValue} placeholder='product, brand, ...'  type='text'></input>
                 {searchRecom  && inputValue &&<>
                 {/* {console.log(SearchValue)} */}
-                  <div className='suggestion-box position-absolute  overflow-y-scroll   px-1 top-100 w-25  bg-white shadow rounded-bottom-5 pb-3'>
-                    {inputValue && inputValue.map((item , index )=> <div key={index} onClick={()=>Search(item)} className='suggestion-item my-2 cursor-pointer p-1 bg-light'>{item}</div>)}
+                  <div className='suggestion-box list-group position-absolute  overflow-y-scroll   px-1 top-100 start-0 end-0  bg-white shadow rounded-bottom pb-3'>
+                    {inputValue && inputValue.map((item , index )=> <div key={index} onClick={()=>Search(item)} className='suggestion-item my-2 cursor-pointer p-1 list-group-item list-group-item-action list-group-item-success'>{item}</div>)}
                     </div>
                     </>}
               </div>

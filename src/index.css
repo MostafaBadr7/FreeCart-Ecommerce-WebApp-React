@@ -450,6 +450,21 @@ body {
   flex-wrap: wrap;
 }
 
+.suggestion-box {
+  height: 50vh;
+  background-color: #ebf0ee !important;
+  padding: 10px !important;
+}
+
+.suggestion-item {
+  border-radius: 5px !important;
+}
+.suggestion-item:hover {
+  border-radius: 5px !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
 /* ---------------------- Discount --------------------------------- */
 .price-container {
   position: relative;

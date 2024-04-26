@@ -73,7 +73,7 @@ const myFormik = useFormik({
   return <>
   <div className={`${style.RegisterBackGround} py-5`}>
     <div className='container text-white'>
-        <h2 className='fw-bold'>ShopVista</h2>
+        <h2 className='fw-bold'>Shopvista</h2>
     </div>
     <div className=' container text-black d-flex align-items-center '>
         <Link className='bg-white p-1' to='/Home'>

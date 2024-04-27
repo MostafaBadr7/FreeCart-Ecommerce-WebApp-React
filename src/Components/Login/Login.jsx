@@ -80,7 +80,7 @@ export default function Login() {
     //......Google Login.........
 
     const handleClickGoogle = () => {
-        const callbackUrl = `${window.location.origin}`;
+        const callbackUrl = window.location.origin.includes('github') ?  'https://mostafabadr7.github.io/FreeCart-Ecommerce-WebApp-React/':`${window.location.origin}`;
         console.log(callbackUrl)
         const googleClientId = "744491233039-d7vsj933f07qk5ccsq48l3vdevovnu3m.apps.googleusercontent.com";
         const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(

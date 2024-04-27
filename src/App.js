@@ -5,7 +5,12 @@ import Product from "./Components/Product/Product";
 // import Brands from "./Components/Brands/Brands";
 // import Categories from "./Components/Categories/Categories";
 import Home from "./Components/Home/Home";
-import { Navigate, RouterProvider, createHashRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+  createHashRouter,
+} from "react-router-dom";
 // import Notfound from "./Components/Notfound/Notfound";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
@@ -40,7 +45,7 @@ const UserProfile = lazy(() => import("./Components/UserProfile/UserProfile"));
 const UserInfo = lazy(() => import("./Components/UserInfo/UserInfo"));
 
 function App() {
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "/Login",
       element: (

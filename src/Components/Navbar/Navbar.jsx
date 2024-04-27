@@ -202,7 +202,7 @@ function Linkedin(){
                 </li>
               </ul>
               <div className='ms-auto position-relative'> 
-                <input className='SearchKey  form-control  rounded-end-0 fs-6 fw-light text-muted px-2 py-2 my-1 mb-2' onBlur={ closeSuggest} onFocus={()=> setsearchRecom(true) } onChange={SearchOnChange}  onKeyDown={SearchOnEnter} ref={SearchValue} placeholder='product, brand, ...'  type='text'></input>
+                <input className='SearchKey  form-control  rounded-end-0 fs-6 fw-light text-muted px-2 py-2 my-1 mb-2 w-25' onBlur={ closeSuggest} onFocus={()=> setsearchRecom(true) } onChange={SearchOnChange}  onKeyDown={SearchOnEnter} ref={SearchValue} placeholder='product, brand, ...'  type='text'></input>
                 {searchRecom  && inputValue &&<>
                 {/* {console.log(SearchValue)} */}
                   <div className='suggestion-box list-group position-absolute  overflow-y-scroll   px-1 top-100 start-0 end-0  bg-white shadow rounded-bottom pb-3'>
@@ -210,7 +210,7 @@ function Linkedin(){
                     </div>
                     </>}
               </div>
-              <button onClick={()=> Search()} className="me-auto btn rounded-start-0 mb-1 rounded-end py-2 px-1 text-white bg-main icon-link-hover"><i className='fa-solid fa-magnifying-glass px-1'></i>Search</button>
+              <button onClick={()=> Search()} className=" btn rounded-start-0 mb-1 rounded-end py-2 px-1 text-white bg-main icon-link-hover"><i className='fa-solid fa-magnifying-glass px-1'></i>Search</button>
               <div className="d-flex  my-2 my-lg-0 me-4 ">
                   {/* <i className='fab fa-instagram mx-2 cursor-pointer text-danger'></i>
                   <i className='fab fa-facebook mx-2 cursor-pointer text-primary'></i> */}

@@ -83,8 +83,7 @@ export default function Login() {
         const callbackUrl =   'https://mostafabadr7.github.io/FreeCart-Ecommerce-WebApp-React/';
         console.log(callbackUrl)
         const googleClientId = "744491233039-d7vsj933f07qk5ccsq48l3vdevovnu3m.apps.googleusercontent.com";
-        const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(
-          callbackUrl
+        const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=https://mostafabadr7.github.io/FreeCart-Ecommerce-WebApp-React/
         )}&response_type=token&client_id=${googleClientId}&scope=openid%20email%20profile`;
         window.location.href = targetUrl;
       };

@@ -9,6 +9,16 @@
 
 /* ................. You can change the main color from here .....................*/
 
+@media screen and (max-width: 1200px) {
+  .SearchKey {
+    font-size: 0.8rem !important;
+  }
+  .btn-search {
+    padding-block: 6px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media 1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 @media screen and (max-width: 768px) {
   /* .................................................... Cart .................................................. */

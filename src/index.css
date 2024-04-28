@@ -464,6 +464,9 @@ body {
   color: white !important;
   font-weight: 600 !important;
 }
+.search-main-div {
+  min-width: 200px !important;
+}
 
 /* ---------------------- Discount --------------------------------- */
 .price-container {

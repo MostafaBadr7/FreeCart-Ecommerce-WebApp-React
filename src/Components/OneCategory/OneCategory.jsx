@@ -28,8 +28,9 @@ export default function OneCategory() {
   async function getCategData() {
     try {
       const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}`);
-      console.log(data.data.name, 'sign');
+      // console.log(data.data.name, 'sign');
       setCategData(data); // Update state with category data
+      setnoResult(false)
       return data;
     } catch (error) {
       console.log(error);

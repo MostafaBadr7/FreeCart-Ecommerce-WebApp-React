@@ -37,8 +37,6 @@ export default function SearchResults() {
     queryFn: getProducts,
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
-      // console.log(lastPage.metadata)
-      // console.log(pages)
       if (lastPage.metadata.numberOfPages !== lastPage.metadata.currentPage) {
         return lastPage.metadata.nextPage
       }
@@ -53,24 +51,17 @@ export default function SearchResults() {
   //When select a rate
   function RateCheckChange(event){
     const { value, checked} = event.target; // get value of the input and the check status
-    // console.log(checked)
     if(checked){
-      // console.log('yes checked')
-      // console.log('rate value after checked', rateValue)
        setrateValue(rateValue => { if(rateValue.includes(value) === false){ return [...rateValue, +value]} }) ;
-      console.log('rate value after checked', rateValue)
     }else{
       setisLoading2(true);
-      // console.log('ratevalue after not checked', +rateValue)
       setrateValue( rateValue.filter(rate => rate !== +value)); //if value not checked return rateValues which not = this value
-      // console.log('ratevalue after not checked', rateValue)
     }
   }
 
   //Applying Filters
   function preparingData(){
     let box = []; //Main array I use in filtering phases
-    // console.log('rateValue in prepare', rateValue)
 
     //Filter data according to searchKey
     if(data?.pages){
@@ -84,14 +75,11 @@ export default function SearchResults() {
     // Filter data according to a rating selection
     if(rateValue.length > 0 && rateValue){
       setisLoading2(true);
-      // console.log(data)
       let filteringBox = []
         for (let index = 0; index < rateValue.length; index++) {
-          // console.log(rateValue[index],box )
           filteringBox.push(...box.filter(product => product.ratingsAverage === rateValue[index] || ( product.ratingsAverage > rateValue[index] &&  product.ratingsAverage < (rateValue[index]+1) ) ))
         }
           box = filteringBox // change box to use in price filtering
-          // console.log('box after filter',box, filteringBox );
           filteringBox.length > 0 ? setdataResults([...filteringBox]) : setdataResults([]);
           setisLoading2(false);
     }else{
@@ -101,10 +89,8 @@ export default function SearchResults() {
 
     // Filter data according to a price range
     if(priceValue.length > 0 && priceValue){
-      console.log(box, 'price f BEFORE')
 
           if(priceValue.length === 2){
-            console.log(box, 'price f BEFORE')
             setisLoading2(true);
             const dataArray = box.filter(product => 
               product.priceAfterDiscount ?
@@ -113,10 +99,8 @@ export default function SearchResults() {
                 product.price >= priceValue[0] && product.price <= priceValue[1]
           )
           setdataResults(dataArray)
-          console.log(dataArray, 'price f')
           setisLoading2(false);
         }else if(priceValue[0]){
-                      console.log(box, 'price f else')
           setisLoading2(true);
           const dataArray = box.filter(product => 
             product.priceAfterDiscount ?
@@ -125,7 +109,6 @@ export default function SearchResults() {
               product.price <= priceValue[0] 
             )
             setdataResults(dataArray)
-            console.log(dataArray, 'price f else end')
             setisLoading2(false);
           }
       }
@@ -135,7 +118,6 @@ export default function SearchResults() {
 function checkPriceInput(){
   const val1 = document.querySelector('.price-input').value;
   const val2 = document.querySelector('.price-input2').value;
-  // console.log(val1, val2, isNaN(val1), !!Number(+val2))
 
   /* Number gives false if input is zero or text , so we are checking if both are zeroes,
   Then we are checking if one of the inputs is NaN*/
@@ -164,16 +146,12 @@ function checkPriceInput(){
   function priceFilter(){
     const price1 = +document.querySelector('.price-input').value || 0 ;
     const price2 = +document.querySelector('.price-input2').value || 0 ;
-    console.log(price1, price2 , 'check')
     if(price1  && price2){
       // Put the smaller number at index 0
        setpriceValue([Math.min(+price1, +price2), Math.max(+price1, +price2)]) 
-      // console.log(priceValue ,'price')
     }else{
        setpriceValue([+price1 || +price2]) // set which has a value
-      console.log(priceValue ,'price ELSE')
     }
-    console.log(priceValue ,'price')
   }
 
 // Reset Price inputs
@@ -199,6 +177,9 @@ function checkPriceInput(){
     const searchResults = data?.pages?.flatMap((page) => page.data)
     .filter((product) => product.title?.toLowerCase().includes(SearchKey.toLowerCase()));
 
+    // Set no result false , so when change search value it removes the body of no result
+    setnoResult(false) 
+
     if (
       searchResults?.length < 6 && searchResults?.length > 0
     ) {
@@ -214,7 +195,6 @@ function checkPriceInput(){
 
 // ****************************************************Return*************************************************
   return <>
-  {/* {console.log(data)} */}
       {isLoading?
       <Loading/>
       :

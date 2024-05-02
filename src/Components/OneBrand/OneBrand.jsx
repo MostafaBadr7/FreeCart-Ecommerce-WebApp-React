@@ -116,7 +116,7 @@ export default function OneBrand() {
         <div className='w-100 bg-white-subtle'>
 
         <div className='m-auto w-50 pt-5'>
-          <img className='m-auto w-25' src={BrandData?.data?.image} alt={ `${BrandData?.data?.image}'s catgory`} />
+          <img className='m-auto w-25' src={BrandData?.data?.image} alt={ `${BrandData?.data?.image}'s brand`} />
           {/* <h2 className='text-center pt-3 pb-3'>{BrandData?.data?.name}</h2> */}
           
           </div>
@@ -159,7 +159,7 @@ export default function OneBrand() {
           <>
             <img className='m-auto w-25 mb-2' src={underConstruction} alt="Search no result" />
             <h1 className='text-center'>Sorry!</h1>
-            <h1 className='text-center'> "{BrandData?.data?.name}" Category is under construction</h1>
+            <h1 className='text-center'> "{BrandData?.data?.name}"  is under construction</h1>
           </>
         }
         <Helmet>

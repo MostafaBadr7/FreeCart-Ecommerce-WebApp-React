@@ -26,6 +26,7 @@ import Loading from "./Components/Loading/Loading";
 import { Suspense, lazy } from "react";
 import SearchResults from "./Components/SearchResults/SearchResults";
 import OneCategory from "./Components/OneCategory/OneCategory";
+import OneBrand from "./Components/OneBrand/OneBrand";
 // import { Gstore } from "./Redux/store";
 
 const Notfound = lazy(() => import("./Components/Notfound/Notfound"));
@@ -67,22 +68,12 @@ function App() {
         {
           path: "Cart",
           element: (
-            <ProtectedRoute>
-              <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Loading />}>
+              <ProtectedRoute>
                 <Cart />
-              </Suspense>
-            </ProtectedRoute>
+              </ProtectedRoute>
+            </Suspense>
           ),
-          children: [
-            {
-              path: "Address",
-              element: (
-                <ProtectedRoute>
-                  <CheckoutDetails />
-                </ProtectedRoute>
-              ),
-            },
-          ],
         },
         { path: "Product", element: <PaginationNav /> },
         {
@@ -121,7 +112,20 @@ function App() {
           path: "Category/:id",
           element: <OneCategory />,
         },
-        { path: "Address/:id", element: <CheckoutDetails /> },
+        {
+          path: "Brand/:id",
+          element: <OneBrand />,
+        },
+        {
+          path: "Address/:id",
+          element: (
+            <ProtectedRoute>
+              <Suspense fallback={<Loading />}>
+                <CheckoutDetails />
+              </Suspense>
+            </ProtectedRoute>
+          ),
+        },
         { path: "/access_token=:accessToken/*", element: <Login /> },
         { path: "/Search/:SearchKey", element: <SearchResults /> },
         {

@@ -78,9 +78,9 @@ export default function UserProfile() {
           <>
             <nav className='col-3 bg-light navbar-nav nav-userinfo  list-group my-2 ' id="myList" role="tablist">
               <ul>
-                <li className='my-3 list-group-item list-group-item-action cursor-pointer'><Link to="">My Info</Link></li>
-                <li  className='my-3 list-group-item list-group-item-action cursor-pointer'><Link to="AllOrders">AllOrder</Link></li>
-                <li  className='my-3 list-group-item list-group-item-action cursor-pointer'><Link to="Cart"> Cart</Link></li>
+                <Link to="" className='my-3 list-group-item list-group-item-action cursor-pointer'>My Info</Link>
+                <Link to="AllOrders" className='my-3 list-group-item list-group-item-action cursor-pointer'>AllOrder</Link>
+                <Link to="Cart" className='my-3 list-group-item list-group-item-action cursor-pointer'> Cart</Link>
               </ul>
             </nav>
             <div className="tab-content col-9 ">

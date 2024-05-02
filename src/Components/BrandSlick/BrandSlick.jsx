@@ -1,5 +1,5 @@
 import React from 'react';
-import './CategorySlider.module.css';
+import './BrandSlick.module.css';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Slider from "react-slick";
@@ -15,6 +15,7 @@ var settings = {
   autoplay: true,
     speed: 8000,
     autoplaySpeed: 0,
+    rtl: true,
     cssEase: "linear",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SampleNextArrow />,
@@ -56,25 +57,26 @@ function SampleNextArrow(props) {
   );
 }
 
- async function getCatSliderData(){
-  return await axios.get('https://ecommerce.routemisr.com/api/v1/categories')
+ async function getBrandSliderData(){
+  return await axios.get('https://ecommerce.routemisr.com/api/v1/brands')
  }
 
 
 
-export default function CategorySlider() {
+export default function BrandSlick() {
+  console.log(getBrandSliderData())
 
-  let {data} = useQuery('CategorySlider', getCatSliderData);
+  let {data} = useQuery('brandSlider', getBrandSliderData);
 
   return (
     <div className="slider-container w-100 mb-5 px-5  pt-3 " style={{ position: 'relative' }}>
   {/* <div className="slider-overlay slider-overlay-left"></div>
   <div className="slider-overlay slider-overlay-right"></div> */}
   <Slider {...settings} className=''>
-    {data?.data.data.map(category => (
-      <Link to={`/Category/${category._id}`} key={category._id} className='cat-item m-2 mb-3 rounded  border-1  p-2 '>
-        <img src={category.image} style={{ height:'100px', objectFit: 'contain' }} className='w-100 rounded img-fluid' alt='' />
-        <div className='text-center text-muted fw-bolder mt-2 p-2 '><span className='fw-bold'>{category.name}</span></div>
+    {data?.data.data.map(Brand => (
+      <Link to={`/Brand/${Brand._id}`} key={Brand._id} className='cat-item m-2 mb-3 rounded  border-1  p-2 '>
+        <img src={Brand.image} style={{ height:'50px', objectFit: 'cover' }} className='w-100 rounded img-fluid' alt='' />
+        {/* <div className='text-center text-muted fw-bolder mt-2 p-2'>{category.name}</div> */}
       </Link>
     ))}
   </Slider>

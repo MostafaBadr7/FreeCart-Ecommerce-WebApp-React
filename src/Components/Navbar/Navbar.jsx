@@ -249,7 +249,7 @@ function Linkedin(){
                       {/* <h6 className='text-black mx-3 my-3'>{  localStorage.getItem('ecommToken') ? <span className=' m-2 d-block text-success'>Hello</span>:null} <span className='fw-bold'>{cstNname?.name?.split(' ').slice(0, 2).join(' ')}</span></h6> */}
                       {  localStorage.getItem('ecommToken') ? <>
                       <UserInfo />
-                        <NavLink className="nav-link drop cursor-pointer mx-3 my-2 text-secondary"to={'/UserProfile'} >View Profile</NavLink>
+                        <NavLink className="nav-link  py-2 px-0 rounded-pill w-50 m-auto text-white  drop cursor-pointer  my-3 bg-black text-secondary"to={'/UserProfile'} >View Profile</NavLink>
                         <span onClick={logout} role='button' className="rounded-pill  dropout bg-danger w-100 cursor-pointer  p-2 text-white  "><i className="fa-solid fa-arrow-right-from-bracket"></i> LogOut</span>
                         </>
                         :<>

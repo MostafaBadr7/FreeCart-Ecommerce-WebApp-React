@@ -21,13 +21,14 @@ import SingleProduct from '../SingleProduct/SingleProduct';
 import arrow from '../../Assets/images/arrow.png'
 import BestSellersSlick from '../BestSellersSlick/BestSellersSlick';
 import OnsalesSlick from '../OnsaleSlick/OnsaleSlick';
+import BrandSlick from '../BrandSlick/BrandSlick';
 
 export default function Home() {
 
   // let {counter} = useSelector(state => state.reducerCounter)
   // let blya = useDispatch()
   const {setnavDisplay} = useContext(AuthContext);
-  const [BestSellers, setBestSellers] = useState([])
+  // const [BestSellers, setBestSellers] = useState([])
   
   var settings = {
     dots: false,
@@ -35,6 +36,7 @@ export default function Home() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: 0,
     autoplay: false,
     speed: 2000,
     autoplaySpeed: 3000,
@@ -47,7 +49,7 @@ export default function Home() {
     return (
       <div
         className={`${className}`}
-        style={{ ...style,fontSize: '200px' , position:'absolute', zIndex:3 , display: "flex",justifyContent:'center', alignItems:'center',  background: "#fff5", borderRadius: '70%', margin:'-20px 40px', padding:'35px', boxShadow:'0px 0px 20px 0px  ' }}
+        style={{ ...style,fontSize: '200px' , position:'absolute', zIndex:3 , display: "flex",justifyContent:'center', alignItems:'center',  background: "#fff5", borderRadius: '70%', margin:'-20px 80px', padding:'35px', boxShadow:'0px 0px 20px 0px  ' }}
         onClick={onClick}
       />
     );
@@ -81,19 +83,19 @@ export default function Home() {
     return `hsl(${h}deg, 90%, 85%)`;
   };
 
-  function getBestSelling(data){
-    let box = []
-    for (let index = 0; index < 10; index++) {
-      for (let index2 = 0; index2 < data?.length; index2++) {
-        if(data[index].sold >  data[ index2 ].sold){
-          !box.includes(data[index]) && box.push(data[index])  ;
-        }else{
-          !box.includes(data[index2]) && box.push(data[index2])  ;
-        }
-      }
-    }
-    setBestSellers(box)
-  }
+  // function getBestSelling(data){
+  //   let box = []
+  //   for (let index = 0; index < 10; index++) {
+  //     for (let index2 = 0; index2 < data?.length; index2++) {
+  //       if(data[index].sold >  data[ index2 ].sold){
+  //         !box.includes(data[index]) && box.push(data[index])  ;
+  //       }else{
+  //         !box.includes(data[index2]) && box.push(data[index2])  ;
+  //       }
+  //     }
+  //   }
+  //   setBestSellers(box)
+  // }
 
   const productContainers =[...document.querySelectorAll(`.${style.productContainer}`) ];
 const nxtBtn = [...document.querySelectorAll(`.${style.nxtBtn}`)];
@@ -121,21 +123,21 @@ useEffect(() => {
     
     // temporary
     productContainers.forEach((items, i ) => {
-        let containerDimenstions = items.getBoundingClientRect();
-        let containerWidth = containerDimenstions.width
-    
-        nxtBtn[i].addEventListener('click', () => {
-            items.scrollLeft += containerWidth
-        })
-    
-        preBtn[i].addEventListener('click', () => {
-            items.scrollLeft -= containerWidth
-        })
-    })
+      let containerDimenstions = items.getBoundingClientRect();
+      let containerWidth = containerDimenstions.width
+  
+      nxtBtn[i].addEventListener('click', () => {
+          items.scrollLeft += containerWidth
+      })
+  
+      preBtn[i].addEventListener('click', () => {
+          items.scrollLeft -= containerWidth
+      })
+  })
 
-  useEffect(() => {
-    getBestSelling(data?.pages[0]?.data)
-  }, [data])
+  // useEffect(() => {
+  //   getBestSelling(data?.pages[0]?.data)
+  // }, [data])
   
   useEffect(() => {
     const URL = window.location.href;
@@ -150,10 +152,10 @@ useEffect(() => {
   return <>
 
     <main className='banner  row g-0  mt-0 border border-0 border-light  rounded d-flex justify-content-center'>
-      <div className=' col-12  bg-light rounded px-4 mt-4 pt-2 '>
+      <div className=' col-12  bg-light rounded px-0 mt-4 pt-2 '>
         <Slider {...settings} arrows={true}>
-          <div className='position-relative z-2'>
-            <div className='super-h1 w-50 position-absolute'>
+          <div className='position-relative z-2 '>
+            <div className='super-h1 w-50 position-absolute '>
               <h1 className='super-h1 z-2  '>UP TO <span className="text-danger">30%</span> ON SUPERMARKET</h1>
               <button className={`btn btn-lg mt-5 rounded-0  btn-secondary text-center  z-3`}><span className=''></span>Shop Now</button>
             </div>
@@ -185,8 +187,12 @@ useEffect(() => {
         </div>
       </div> */}
     </main>
+    <section>
+        <BrandSlick/>
+      </section>
      <p className='bg-secondary-subtle m-0 mt-2 ps-1 fw-bold'>Shop Popular Categories</p>
     <section className={`${style.catSider} bg-secondary rounded`}>
+      
       <CategorySlider />
     </section>
     <BestSellersSlick data={data?.pages[0]?.data}/>

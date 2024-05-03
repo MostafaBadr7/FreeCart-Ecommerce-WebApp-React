@@ -45,7 +45,7 @@ export default function Product({data, isLoading, pages}) {
       <>
         <main  className='products-row row g-0 mt-3 position-relative z-3 px-3'>
          {window.location.hash.toLowerCase().includes('home') ?
-            <h1 className='text-warning-subtle text-center py-3 fw-bold'>Shop Different Products</h1>
+            <h1 className='text-warning-subtle text-center py-3 fw-bold'>Shop <span className='text-main'>Different</span> Products</h1>
           :
             ""
         } 

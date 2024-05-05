@@ -67,8 +67,8 @@ export default function OnsalesSlick({data}) {
 
     
   return (
-    <section class={style.product}>
-      <h2 class={style.productCategory}>ON SALE</h2>
+    <section className={style.product}>
+      <h2 className={`${style.productCategory} `}>ON SALE</h2>
       <button onClick={()=> preBtnOnClck()} class={style.preBtn}><img src={arrow} alt="" /></button>
       <button onClick={()=> nxtBtnOnClck()} class={style.nxtBtn}><img src={arrow} alt="" /></button>
       <div className={`${style.productContainer} pb-4`}>

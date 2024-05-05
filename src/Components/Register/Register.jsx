@@ -7,6 +7,8 @@ import {BallTriangle} from 'react-loader-spinner'
 import {Link, useNavigate} from 'react-router-dom'
 import style from './Register.module.css'
 import { AuthContext } from '../../Contexts/AuthContextProvider'
+import Loading from '../Loading/Loading'
+import backgroundImage from '../../Assets/images/Login/adam-jang-8pOTAtyd_Mc-unsplash.jpg'
 
 export default function Register() {
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> State <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -14,10 +16,20 @@ export default function Register() {
     const [faild, setfaild] = useState(false);
     const [loading, setloading] = useState(false);
     const {setnavDisplay} = useContext(AuthContext)
+    const [imageLoaded, setImageLoaded] = useState(false);
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> useEffect <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     useEffect(() => {
         setnavDisplay(false)
     }, [])
+
+    useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = backgroundImage;
+    }, []);
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>[ Automation ]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     
     //usenavigate returns function ,, so its variable is a function
@@ -42,8 +54,6 @@ export default function Register() {
         })
     }
  
-    
-   
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>[ ForMik ]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let useData={
     name:'',
@@ -71,75 +81,82 @@ const myFormik = useFormik({
     })
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>[ RETURN ]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   return <>
-  <div className={`${style.RegisterBackGround} py-5`}>
-    <div className='container text-white'>
-        <h2 className='fw-bold'>Shopvista</h2>
+{!imageLoaded ? 
+    <div className='d-flex flex-column align-items-center justify-content-center bg-main'>
+        <h1 className='position-absolute fw-bold text-black mb-5 pb-5'>Shopvista</h1>
+        <Loading/>
     </div>
-    <div className=' container text-black d-flex align-items-center '>
-        <Link className='bg-white p-1' to='/Home'>
-        <i className="fa-solid fa-square-caret-left fs-2 bg-white"></i>
-        </Link>
-        <Link to='/Home'><h2 className='p-2 text-white text-center btn btn-dark mt-2'>Back To Home</h2></Link>
-    </div>
-    <main className="mt-5 px-5 me-5 bg-success-subtle py-5 rounded shadow w-50 ms-auto">
-    {/* // ------------------------------------------- Error or Success ---------------------------------------- */}
-        {success && <div className='alert alert-success text-center' >Congratulations, Your account has been created</div>}
-        {faild && <div className='alert alert-danger text-center' >{faild}</div>}
-    {/* // ------------------------------------------------ FORM ---------------------------------------- */}
-            <h1>Register Now:</h1>
-                <form onSubmit={myFormik.handleSubmit} >
-                    <div className="mb-3">
-                        <label htmlFor='name' className="form-label text-dark">name:</label>
-                        <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="text" value={myFormik.values.name}  id='name' className="form-control shadow "   />
-                            {myFormik.errors.name && myFormik.touched.name && <div className='alert alert-danger'>{myFormik.errors.name}</div> }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor='email' className="form-label">email:</label>
-                        <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="text" value={myFormik.values.email} id='email' className="form-control shadow "   />
-                            {myFormik.errors.email && myFormik.touched.email && <div className='alert alert-danger'>{myFormik.errors.email}</div> }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor='password' className="form-label">password:</label>
-                        <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="password" value={myFormik.values.password}  id='password' className="form-control shadow"   />
-                            {myFormik.errors.password && myFormik.touched.password && <div className='alert alert-danger'>{myFormik.errors.password}</div> }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor='rePassword' className="form-label">rePassword:</label>
-                        <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="password" value={myFormik.values.rePassword} id='rePassword' className="form-control shadow"   />
-                            {myFormik.errors.rePassword && myFormik.touched.rePassword && <div className='alert alert-danger'>{myFormik.errors.rePassword}</div> }
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor='phone' className="form-label">phone:</label>
-                        <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="number" value={myFormik.values.phone} id='phone' className="form-control shadow"   />
-                            {myFormik.errors.phone && myFormik.touched.phone && <div className='alert alert-danger'>{myFormik.errors.phone}</div> }
-                    </div>
-                    <div className="d-flex align-items-center justify-content-between">
-                    <div className=''>
-                        <Link to='/login' className='text-main mx-2 fw-bold'>Have an account?LogIn</Link>
-                     </div>
-    {/* // --------------------------------------------- SUBMIT BUTTON ---------------------------------------- */}
-                    {loading? 
-                    <button  disabled={!(myFormik.isValid && myFormik.dirty)} type='button' className="d-flex align-items-center btn px-3 py-2  bg-main rounded ms-auto text-white">
-                    <BallTriangle
-                            height={20}
-                            width={20}
-                            radius={5}
-                            color="#fff"
-                            ariaLabel="ball-triangle-loading"
-                            wrapperStyle={{}}
-                            wrapperClass="mb-1 px-4"
-                            visible={true}
-                        />
-                    </button>
-                    :
-                    <button  disabled={!(myFormik.isValid && myFormik.dirty)} type='submit' className="d-flex align-items-center btn px-3 py-2  bg-main rounded  text-white">
-                    Register
-                    </button>
-                }
-                
-                    </div>
-                </form>
-    </main>
-    </div>  
+  :
+    <div className={`${style.RegisterBackGround} py-5`}>
+        <div className='container text-white'>
+            <h2 className='fw-bold'>Shopvista</h2>
+        </div>
+        <div className=' container text-black d-flex align-items-center '>
+            <Link className='bg-white p-1' to='/Home'>
+            <i className="fa-solid fa-square-caret-left fs-2 bg-white"></i>
+            </Link>
+            <Link to='/Home'><h2 className='p-2 text-white text-center btn btn-dark mt-2'>Back To Home</h2></Link>
+        </div>
+        <main className="mt-5 px-5 me-5 bg-success-subtle py-5 rounded shadow w-50 ms-auto">
+        {/* // ------------------------------------------- Error or Success ---------------------------------------- */}
+            {success && <div className='alert alert-success text-center' >Congratulations, Your account has been created</div>}
+            {faild && <div className='alert alert-danger text-center' >{faild}</div>}
+        {/* // ------------------------------------------------ FORM ---------------------------------------- */}
+                <h1>Register Now:</h1>
+                    <form onSubmit={myFormik.handleSubmit} >
+                        <div className="mb-3">
+                            <label htmlFor='name' className="form-label text-dark">name:</label>
+                            <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="text" value={myFormik.values.name}  id='name' className="form-control shadow "   />
+                                {myFormik.errors.name && myFormik.touched.name && <div className='alert alert-danger'>{myFormik.errors.name}</div> }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor='email' className="form-label">email:</label>
+                            <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="text" value={myFormik.values.email} id='email' className="form-control shadow "   />
+                                {myFormik.errors.email && myFormik.touched.email && <div className='alert alert-danger'>{myFormik.errors.email}</div> }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor='password' className="form-label">password:</label>
+                            <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="password" value={myFormik.values.password}  id='password' className="form-control shadow"   />
+                                {myFormik.errors.password && myFormik.touched.password && <div className='alert alert-danger'>{myFormik.errors.password}</div> }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor='rePassword' className="form-label">rePassword:</label>
+                            <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="password" value={myFormik.values.rePassword} id='rePassword' className="form-control shadow"   />
+                                {myFormik.errors.rePassword && myFormik.touched.rePassword && <div className='alert alert-danger'>{myFormik.errors.rePassword}</div> }
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor='phone' className="form-label">phone:</label>
+                            <input onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} type="number" value={myFormik.values.phone} id='phone' className="form-control shadow"   />
+                                {myFormik.errors.phone && myFormik.touched.phone && <div className='alert alert-danger'>{myFormik.errors.phone}</div> }
+                        </div>
+                        <div className="d-flex align-items-center justify-content-between">
+                        <div className=''>
+                            <Link to='/login' className='text-main mx-2 fw-bold'>Have an account?LogIn</Link>
+                        </div>
+        {/* // --------------------------------------------- SUBMIT BUTTON ---------------------------------------- */}
+                        {loading? 
+                        <button  disabled={!(myFormik.isValid && myFormik.dirty)} type='button' className="d-flex align-items-center btn px-3 py-2  bg-main rounded ms-auto text-white">
+                        <BallTriangle
+                                height={20}
+                                width={20}
+                                radius={5}
+                                color="#fff"
+                                ariaLabel="ball-triangle-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="mb-1 px-4"
+                                visible={true}
+                            />
+                        </button>
+                        :
+                        <button  disabled={!(myFormik.isValid && myFormik.dirty)} type='submit' className="d-flex align-items-center btn px-3 py-2  bg-main rounded  text-white">
+                        Register
+                        </button>
+                    }
+                    
+                        </div>
+                    </form>
+        </main>
+    </div> 
+} 
 </>
 }

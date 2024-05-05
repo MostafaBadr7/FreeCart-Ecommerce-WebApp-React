@@ -88,7 +88,7 @@ export default function ProductDetails() {
       </div>
       :
       <>
-      <button onClick={()=>navigate('/Product')} className='btn btn-close d-block ms-auto mt-4 mb-3'></button>
+      <button onClick={()=>navigate(-1)} className='btn btn-close d-block ms-auto mt-4 mb-3'></button>
         <main className='row align-items-center mb-2 ms-lg-5 me-lg-1 ms-0 me-0 '>
           {/* ----------------------------------------------------------------------------- */}
               <div className=' col-sm-4 mb-sm-4 '>
